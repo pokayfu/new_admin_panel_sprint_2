@@ -36,7 +36,14 @@ class SQLToPostgres:
                     pgconn.commit()
         conn.close()
 
-
+    def define_db_structure(self):
+        with closing(psycopg2.connect(**dsn)) as pgconn:
+            pgcursor = pgconn.cursor()
+            sql = open('movies_database.ddl').read()
+            pgcursor.execute(sql)
+            pgconn.commit()
+            
 if __name__ == '__main__':
     sqltopostgres = SQLToPostgres()
+    sqltopostgres.define_db_structure()
     sqltopostgres.run()
