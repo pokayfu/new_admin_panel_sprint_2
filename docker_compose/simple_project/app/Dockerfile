@@ -24,4 +24,6 @@ COPY . .
 
 EXPOSE 8000
 
-ENTRYPOINT ["uwsgi", "--strict", "--ini", "uwsgi.ini"]
+CMD bash setup_db.sh
+
+#ENTRYPOINT ["uwsgi", "--strict", "--ini", "uwsgi.ini"]
