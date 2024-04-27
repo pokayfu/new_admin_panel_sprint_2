@@ -5,7 +5,6 @@ from django.views.generic.list import BaseListView
 from django.db.models import Q
 from django.http import JsonResponse
 
-
 from movies.models import (
     Filmwork,
     PersonFilmwork,
@@ -78,8 +77,4 @@ class MoviesDetailApi(MoviesApiMixin, BaseDetailView):
     pk_url_kwarg = "id"
 
     def get_context_data(self, **_) -> dict[str, Any]:
-        queryset = self.get_queryset()
-        filmwork_id = str(self.kwargs["id"])
-        filmwork_record = queryset.filter(id=filmwork_id).first()
-        return filmwork_record
-
+        return _

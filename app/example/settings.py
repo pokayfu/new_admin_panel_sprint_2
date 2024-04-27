@@ -55,6 +55,10 @@ TEMPLATES = [
     },
 ]
 
+#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = '/static/'
+STATIC_URL = '/static/'
+
 WSGI_APPLICATION = 'example.wsgi.application'
 
 CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:8080",]
